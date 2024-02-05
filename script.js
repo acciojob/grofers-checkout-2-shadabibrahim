@@ -1,5 +1,5 @@
 //your code here
-let itemPrice = document.querySelectorAll(".price");
+
 // console.log(itemPrice)
 
 let btn =  document.createElement('button');
@@ -8,18 +8,19 @@ document.body.appendChild(btn);
 
 
 function getSum(){
-let sum = 0;
+let itemPrice = document.querySelectorAll(".price");
+let sum =0;
 itemPrice.forEach((data)=>{
 	sum = sum + Number(data.innerHTML)
 })
+let tr = document.createElement('tr');
+let tdTotal = document.createElement('td');
+tdTotal.innerHTML = `Total Price (in Rs): ${sum}`;
+tr.appendChild(tdTotal);
+document.querySelector("tbody").appendChild(tr);
 
-let td = document.createElement('td');
-td.innerHTML = `Total Price (in Rs): ${sum}`;
-	document.querySelector(".total").appendChild(td)
-console.log(td);
 }
 
 
-btn.addEventListener('click',getSum)
 
-getSum();
+btn.addEventListener('click',getSum)
