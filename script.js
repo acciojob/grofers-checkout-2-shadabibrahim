@@ -1,21 +1,17 @@
-let btn =  document.createElement('button');
-btn.append("Get Sum");
-document.body.appendChild(btn);
 
-function getSum(){
-let prices= document.querySelectorAll('[data-ns-test="price"]');
-let grandTotal =0;
-prices.forEach((price)=>{
-	grandTotal +=  parseFloat(price.innerHTML)
-})
-let tr = document.createElement('tr');
-let tdTotal = document.createElement('td');
-	tdTotal.setAttribute('data-ns-test', 'grandTotal');
-tdTotal.innerHTML = `Total Price (in Rs): ${grandTotal.toFixed(2)}`;
-tr.appendChild(tdTotal);
-document.querySelector("tbody").appendChild(tr);
+
+const priceArray=document.querySelectorAll('[data-ns-test="price"]');
+let table=document.getElementById("table1");
+let ans=0;
+for (let i = 0; i < priceArray.length; i++) {
+	ans+=parseInt(priceArray[i].innerText);
 }
+let total=document.createElement("tr");
 
-btn.addEventListener('click',getSum)
+total.setAttribute("data-ns-test", "grandTotal");
+
+total.innerText=ans;
+
+table.appendChild(total);
 
 
